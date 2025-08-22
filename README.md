@@ -1,98 +1,178 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🛒 Loja API - NestJS
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+API RESTful desenvolvida em **NestJS** para gerenciar uma loja simples.  
+Inclui autenticação, CRUD de usuários, produtos e pedidos, com arquitetura modular e escalável.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## 🚀 Tecnologias
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+### 🔧 Backend
+- ⚡ [NestJS](https://nestjs.com/) — Framework Node.js
+- 📘 [TypeScript](https://www.typescriptlang.org/) — Tipagem estática  
+- 🔗 [TypeORM](https://typeorm.io/) — ORM para Postgres  
 
-## Project setup
+### 🐘 Banco de Dados
+- 🐘 [PostgreSQL](https://www.postgresql.org/)  
 
+### 🔐 Segurança & Autenticação
+- 🔑 [JWT](https://jwt.io/) — Autenticação via tokens  
+- 🔒 [bcrypt](https://www.npmjs.com/package/bcrypt) — Criptografia de senhas  
+
+### ✅ Validação & Utilidades
+- 🧩 [class-validator](https://github.com/typestack/class-validator) — Validação de DTOs  
+- 🔄 [class-transformer](https://github.com/typestack/class-transformer) — Transformação de objetos  
+- 🆔 [uuid](https://github.com/uuidjs/uuid) — Geração de IDs únicos  
+
+### ⚡ Performance
+- 📦 [cache-manager](https://www.npmjs.com/package/cache-manager) — Cache em memória  
+- 🚀 [cache-manager-redis-yet](https://www.npmjs.com/package/cache-manager-redis-yet) — Cache distribuído com Redis  
+
+### 🐳 Infraestrutura
+- 🐳 [Docker](https://www.docker.com/) + Docker Compose  
+
+### 🧪 Testes
+- 🧪 [Jest](https://jestjs.io/) — Testes unitários e E2E  
+- 🔎 [Supertest](https://github.com/visionmedia/supertest) — Testes de integração HTTP  
+
+### 🎨 Qualidade de Código
+- 🧹 [ESLint](https://eslint.org/) — Linter  
+- 🎨 [Prettier](https://prettier.io/) — Formatação de código  
+- ⚡ [SWC](https://swc.rs/) — Compilador rápido para TS  
+
+---
+
+## ⚡ Rotas da API
+
+### 🔑 Autenticação
+| Método | Rota                   | Descrição |
+|--------|------------------------|-----------|
+| POST   | `/autenticacao/login`  | Realiza login |
+### 👤 Usuários
+| Método | Rota         | Descrição |
+|--------|-------------|-----------|
+| GET    | `/usuarios`     | Lista todos os usuários |
+| POST   | `/usuarios`     | Cria um usuário |
+| PUT    | `/usuarios/:id` | Atualiza usuário |
+| DELETE | `/usuarios/:id` | Remove usuário |
+### 📦 Produtos
+| Método | Rota            | Descrição |
+|--------|----------------|-----------|
+| GET    | `/produtos`     | Lista todos os produtos |
+| GET    | `/produtos/:id` | Busca produto por ID |
+| POST   | `/produtos`     | Cria produto |
+| PUT    | `/produtos/:id` | Atualiza produto |
+| DELETE | `/produtos/:id` | Remove produto |
+### 📝 Pedidos
+| Método | Rota             | Descrição |
+|--------|-----------------|-----------|
+| GET    | `/pedidos`      | Lista pedidos |
+| POST   | `/pedidos`      | Cria pedido |
+| PUT    | `/pedidos/:id`  | Atualiza pedido |
+| PATCH  | `/pedidos/:id`  | Atualiza parcialmente |
+
+---
+
+# 🛠️ Como Rodar o Projeto
+
+## Instalar dependências
 ```bash
-$ npm install
+npm install
+````
+## Rodar em modo desenvolvimento
+```bash
+npm run start:dev
+````
+
+## Usando Docker
+```bash
+docker-compose up --build
 ```
 
-## Compile and run the project
-
+## .env
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_USERNAME=postgres
+DB_PASSWORD=secret
+DB_NAME=db_loja
+DB_ADMIN_EMAIL=admin@example.com
+SAL_SENHA=<hash_bcrypt_exemplo>
+SEGREDO_JWT=jwt_secret_example
 ```
 
-## Run tests
+---
 
+# 🔍 Exemplos de Requisições
+
+## Cria usuário
+
+POST /usuarios
+Content-Type: application/json
 ```bash
-# unit tests
-$ npm run test
+{
+	"nome": "Padrao",
+	"email": "padrao@email.com",
+	"senha": "#Abcd123"
+}
+```
+## Loga usuário
 
-# e2e tests
-$ npm run test:e2e
+POST /autenticacao/login
+Content-Type: application/json
+```bash
+{
+	"email": "padrao@email.com",
+	"senha": "#Abcd123"
+}
+```
+## Cria produto
 
-# test coverage
-$ npm run test:cov
+POST /produtos
+Content-Type: application/json
+```bash
+{
+    "nome": "Figura de ação Marvel Homem Aranha Olympus Homem Aranha E6358 de Hasbro Classic",
+    "usuarioId": "ID-DE-USUARIO-LOGADO",
+    "valor": 70.00,
+    "quantidadeDisponivel": 10,
+    "descricao": "Produto novo, bem acabado, alegria para colecionadores",
+    "caracteristicas": [
+        {
+            "nome": "Fabricante",
+            "descricao": "Iron Studios"
+        },
+        {
+            "nome": "material",
+            "descricao": "Plástico"
+        }
+    ],
+    "imagens": [
+        {
+            "url": "https://i.imgur.com/dwDZICq.jpg",
+            "descricao": "Imagem do Homem Aranha"
+        }
+    ],
+    "categoria": "Colecionáveis"
+}
+```
+## Cria pedido
+
+POST /pedidos/?usuarioId=ID-DE-USUARIO-LOGADO
+Content-Type: application/json
+```bash
+{
+    "itensPedido": [
+        {
+            "produtoId": "ID-DE-PRODUTO-EXISTENTE",
+            "quantidade": 1
+        }
+    ]
+}
 ```
 
-## Deployment
+---
+Este projeto foi desenvolvido com o objetivo de estudo e prática de desenvolvimento backend utilizando NestJS, TypeORM e PostgreSQL.
+Não se trata de uma aplicação pronta para produção, mas sim de um ambiente para experimentar conceitos como arquitetura modular, autenticação, validação de dados, testes e boas práticas de organização de código.
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+Sinta-se à vontade para usar como referência, adaptar e expandir. 🚀
